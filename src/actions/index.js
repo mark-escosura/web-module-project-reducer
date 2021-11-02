@@ -11,6 +11,6 @@ export const applyNumber = (number) => {
     return({type:APPLY_NUMBER, payload:number});
 }
 
-export const changeOperation = () => {
-    return({type:CHANGE_OPERATION});
+export const changeOperation = (oper) => {
+    return({type:CHANGE_OPERATION, payload: oper});
 }

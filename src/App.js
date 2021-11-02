@@ -1,11 +1,11 @@
-import reducer, { initialState} from './reducers';
+import reducer, { initialState } from './reducers';
 import React, { useReducer } from 'react';
 import './App.css';
 
 import TotalDisplay from './components/TotalDisplay';
 import CalcButton from './components/CalcButton';
 
-import { applyNumber } from './actions/index';
+import { applyNumber, changeOperation } from './actions/index';
 
 function App() {
 
@@ -15,6 +15,12 @@ function App() {
   const handleApplyChange = (number) => {
     dispatch(applyNumber(number));
   }
+
+  const handleChangeOperation = (symbol) => {
+    dispatch(changeOperation(symbol))
+  }
+
+
 
   
   
@@ -39,7 +45,7 @@ function App() {
               <CalcButton value={"MR"}/>
               <CalcButton value={"MC"}/>
             </div>
-3
+
             <div className="row">
               <CalcButton onClick={() => {handleApplyChange(1)}} value={1}/>
               <CalcButton onClick={() => {handleApplyChange(2)}} value={2}/>
@@ -59,9 +65,9 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={"+"}/>
-              <CalcButton value={"*"}/>
-              <CalcButton value={"-"}/>
+              <CalcButton onClick={() => {handleChangeOperation("+")}} value={"+"}/>
+              <CalcButton onClick={() => {handleChangeOperation("*")}} value={"*"}/>
+              <CalcButton onClick={() => {handleChangeOperation("-")}} value={"-"}/>
             </div>
 
             <div className="row ce_button">
